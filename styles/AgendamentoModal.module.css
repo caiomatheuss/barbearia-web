@@ -1,0 +1,394 @@
+/* Estilos do Modal de Agendamento */
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modal {
+  background-color: var(--cor-branco);
+  border-radius: 20px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.closeBtn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: transparent;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--cor-cinza-escuro);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.closeBtn:hover {
+  background-color: var(--cor-cinza);
+  color: var(--cor-preto);
+}
+
+.header {
+  padding: 2rem 2rem 1rem;
+  border-bottom: 2px solid var(--cor-cinza);
+}
+
+.header h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--cor-preto);
+}
+
+.progress {
+  margin-top: 1rem;
+}
+
+.progressBar {
+  width: 100%;
+  height: 8px;
+  background-color: var(--cor-cinza);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--cor-roxo), var(--cor-roxo-claro));
+  transition: width 0.3s ease;
+}
+
+.erro {
+  margin: 1rem 2rem;
+  padding: 1rem;
+  background-color: #fee;
+  color: #c33;
+  border-radius: 8px;
+  border: 1px solid #fcc;
+}
+
+.content {
+  padding: 2rem;
+}
+
+.etapa {
+  min-height: 300px;
+}
+
+.etapa h3 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: var(--cor-preto);
+}
+
+.input {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.1rem;
+  border: 2px solid var(--cor-cinza);
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--cor-roxo);
+  box-shadow: 0 0 0 3px rgba(155, 89, 255, 0.1);
+}
+
+.barbeirosGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.barbeiroBtn {
+  padding: 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: 2px solid var(--cor-cinza);
+  background-color: var(--cor-branco);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.barbeiroBtn:hover {
+  border-color: var(--cor-roxo);
+  transform: translateY(-2px);
+}
+
+.barbeiroBtn.active {
+  background-color: var(--cor-roxo);
+  color: var(--cor-branco);
+  border-color: var(--cor-roxo);
+}
+
+.horariosGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.horarioBtn {
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: 2px solid var(--cor-cinza);
+  background-color: var(--cor-branco);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.horarioBtn:hover {
+  border-color: var(--cor-roxo);
+  transform: translateY(-2px);
+}
+
+.horarioBtn.active {
+  background-color: var(--cor-roxo);
+  color: var(--cor-branco);
+  border-color: var(--cor-roxo);
+}
+
+.semHorarios {
+  padding: 2rem;
+  text-align: center;
+  color: var(--cor-cinza-escuro);
+  background-color: var(--cor-cinza);
+  border-radius: 8px;
+}
+
+.servicosList {
+  margin-bottom: 2rem;
+}
+
+.servicoItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  border: 2px solid var(--cor-cinza);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.servicoItem:hover {
+  border-color: var(--cor-roxo);
+  transform: translateX(5px);
+}
+
+.servicoItem.selected {
+  background-color: rgba(155, 89, 255, 0.1);
+  border-color: var(--cor-roxo);
+}
+
+.servicoInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.servicoNome {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--cor-preto);
+}
+
+.servicoValor {
+  font-size: 1rem;
+  color: var(--cor-roxo);
+  font-weight: 700;
+}
+
+.checkbox {
+  width: 30px;
+  height: 30px;
+  border: 2px solid var(--cor-roxo);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--cor-branco);
+  color: var(--cor-roxo);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.servicoItem.selected .checkbox {
+  background-color: var(--cor-roxo);
+  color: var(--cor-branco);
+}
+
+.total {
+  padding: 1.5rem;
+  background-color: var(--cor-cinza);
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: var(--cor-preto);
+}
+
+.resumo {
+  background-color: var(--cor-cinza);
+  padding: 2rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+
+.resumoItem {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+}
+
+.resumoItem:last-child {
+  border-bottom: none;
+}
+
+.resumoItem strong {
+  color: var(--cor-preto);
+}
+
+.confirmacaoTexto {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: var(--cor-cinza-escuro);
+}
+
+.botoesConfirmacao {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.btnPrimary {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background-color: var(--cor-roxo);
+  color: var(--cor-branco);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btnPrimary:hover:not(:disabled) {
+  background-color: var(--cor-roxo-escuro);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(155, 89, 255, 0.4);
+}
+
+.btnPrimary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btnSecondary {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background-color: transparent;
+  color: var(--cor-roxo);
+  border: 2px solid var(--cor-roxo);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btnSecondary:hover:not(:disabled) {
+  background-color: var(--cor-roxo);
+  color: var(--cor-branco);
+}
+
+.btnSecondary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.footer {
+  padding: 1rem 2rem 2rem;
+  border-top: 2px solid var(--cor-cinza);
+  display: flex;
+  justify-content: flex-start;
+}
+
+@media (max-width: 768px) {
+  .modal {
+    max-width: 100%;
+    border-radius: 0;
+    max-height: 100vh;
+  }
+  
+  .header,
+  .content,
+  .footer {
+    padding: 1.5rem;
+  }
+  
+  .horariosGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .botoesConfirmacao {
+    flex-direction: column;
+  }
+  
+  .btnPrimary,
+  .btnSecondary {
+    width: 100%;
+  }
+}
+
